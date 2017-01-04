@@ -1,3 +1,14 @@
+﻿TRUNCATE CLIENTE CASCADE ;
+TRUNCATE TARJETA CASCADE ;
+TRUNCATE AVION CASCADE ;
+TRUNCATE PLAZA CASCADE ;
+TRUNCATE LUGAR CASCADE ;
+TRUNCATE AEROPUERTO CASCADE ;
+TRUNCATE VUELO CASCADE ;
+TRUNCATE RESERVA CASCADE ;
+TRUNCATE AER_VUE CASCADE ;
+TRUNCATE TARJETA_DE_EMBARQUE CASCADE ;
+
 /*CLIENTE*/
 INSERT INTO CLIENTE VALUES (20613697,'DAVID','GARCIA',04241782944);
 INSERT INTO CLIENTE VALUES (18256487,'MARIA','RODRIGUEZ',02125547889);
@@ -104,8 +115,8 @@ Insert into AEROPUERTO values (10,'Cipriano Castro',2);
 Insert into VUELO values (1,TO_DATE('12/06/2016','dd/mm/yyyy'),TO_DATE('13/06/2016','dd/mm/yyyy'),300,1);
 Insert into VUELO values (2,TO_DATE('21/06/2016','dd/mm/yyyy'),TO_DATE('21/06/2016','dd/mm/yyyy'),900,5);
 Insert into VUELO values (3,TO_DATE('29/06/2016','dd/mm/yyyy'),TO_DATE('30/06/2016','dd/mm/yyyy'),380,6);
-Insert into VUELO values (4,TO_DATE('1/06/2016',,'dd/mm/yyyy')TO_DATE('3/06/2016','dd/mm/yyyy'),810,2);
-Insert into VUELO values (5,TO_DATE('5/07/2016',,'dd/mm/yyyy')TO_DATE('7/07/2016','dd/mm/yyyy'),630,8);
+Insert into VUELO values (4,TO_DATE('1/06/2016','dd/mm/yyyy'),TO_DATE('3/06/2016','dd/mm/yyyy'),810,2);
+Insert into VUELO values (5,TO_DATE('5/07/2016','dd/mm/yyyy'),TO_DATE('7/07/2016','dd/mm/yyyy'),630,8);
 Insert into VUELO values (6,TO_DATE('12/07/2016','dd/mm/yyyy'),TO_DATE('13/07/2016','dd/mm/yyyy'),340,7);
 Insert into VUELO values (7,TO_DATE('15/07/2016','dd/mm/yyyy'),TO_DATE('16/07/2016','dd/mm/yyyy'),790,3);
 Insert into VUELO values (8,TO_DATE('16/06/2016','dd/mm/yyyy'),TO_DATE('17/06/2016','dd/mm/yyyy'),1000,4);
