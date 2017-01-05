@@ -122,6 +122,8 @@ Insert into VUELO values (7,TO_DATE('15/07/2016','dd/mm/yyyy'),TO_DATE('16/07/20
 Insert into VUELO values (8,TO_DATE('16/06/2016','dd/mm/yyyy'),TO_DATE('17/06/2016','dd/mm/yyyy'),1000,4);
 Insert into VUELO values (9,TO_DATE('22/07/2016','dd/mm/yyyy'),TO_DATE('23/07/2016','dd/mm/yyyy'),1300,10);
 Insert into VUELO values (10,TO_DATE('24/07/2016','dd/mm/yyyy'),TO_DATE('25/07/2016','dd/mm/yyyy'),650,9);
+Insert into VUELO values (11,TO_DATE('22/06/2016','dd/mm/yyyy'),TO_DATE('23/06/2016','dd/mm/yyyy'),950,4);
+Insert into VUELO values (12,TO_DATE('23/06/2016','dd/mm/yyyy'),TO_DATE('24/06/2016','dd/mm/yyyy'),900,6);
 
 /*RESERVA*/
 INSERT INTO RESERVA VALUES (1,TO_DATE('15/02/2016','dd/mm/yyyy'),1,5,1,20613697);
@@ -136,16 +138,31 @@ INSERT INTO RESERVA VALUES (9,TO_DATE('04/06/2016','dd/mm/yyyy'),1,2,9,21556847)
 INSERT INTO RESERVA VALUES (10,TO_DATE('30/06/2016','dd/mm/yyyy'),0,2,10,22556585);
 
 /*AER_VUE*/
+
 Insert into AER_VUE values (1,1,1);
+Insert into AER_VUE values (1,2,0);
 Insert into AER_VUE values (2,2,0);
+Insert into AER_VUE values (2,4,1);
+Insert into AER_VUE values (3,6,0);
 Insert into AER_VUE values (3,3,1);
+Insert into AER_VUE values (4,5,1);
 Insert into AER_VUE values (4,6,0);
+Insert into AER_VUE values (5,3,0);
 Insert into AER_VUE values (5,9,1);
+Insert into AER_VUE values (6,1,1);
 Insert into AER_VUE values (6,7,0);
+Insert into AER_VUE values (7,7,0);
 Insert into AER_VUE values (7,8,1);
+Insert into AER_VUE values (8,9,1);
 Insert into AER_VUE values (8,2,0);
+Insert into AER_VUE values (9,8,0);
 Insert into AER_VUE values (9,3,1);
+Insert into AER_VUE values (10,4,1);
 Insert into AER_VUE values (10,5,0);
+Insert into AER_VUE values (11,1,1);
+Insert into AER_VUE values (11,2,0);
+Insert into AER_VUE values (12,8,1);
+Insert into AER_VUE values (12,4,0);
 
 /*TARJETA DE EMBARQUE*/
 INSERT INTO TARJETA_DE_EMBARQUE VALUES (1,20613697,1,1);
