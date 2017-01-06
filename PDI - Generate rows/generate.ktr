@@ -109,12 +109,15 @@
   <hop> <from>Campos-pl</from><to>numero</to><enabled>N</enabled> </hop>
   <hop> <from>abs-pl</from><to>numero</to><enabled>N</enabled> </hop>
   <hop> <from>numero</from><to>vuelo</to><enabled>N</enabled> </hop>
-  <hop> <from>ID-pl</from><to>seq1</to><enabled>Y</enabled> </hop>
-  <hop> <from>seq1</from><to>seq2</to><enabled>Y</enabled> </hop>
+  <hop> <from>ID-pl</from><to>seq1</to><enabled>N</enabled> </hop>
+  <hop> <from>seq1</from><to>seq2</to><enabled>N</enabled> </hop>
   <hop> <from>seq2</from><to>numero</to><enabled>N</enabled> </hop>
   <hop> <from>numero</from><to>tarjeta-de-embarque</to><enabled>N</enabled> </hop>
   <hop> <from>seq2</from><to>abs-pl</to><enabled>Y</enabled> </hop>
-  <hop> <from>abs-pl</from><to>reserva</to><enabled>Y</enabled> </hop>
+  <hop> <from>abs-pl</from><to>reserva</to><enabled>N</enabled> </hop>
+  <hop> <from>abs-pl</from><to>aeropuerto</to><enabled>N</enabled> </hop>
+  <hop> <from>abs-pl</from><to>aer_vue</to><enabled>Y</enabled> </hop>
+  <hop> <from>ID-pl</from><to>seq2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Registros-pl</name>
@@ -155,8 +158,8 @@
            </partitioning>
     <fields>
       <field>
-        <name>precio</name>
-        <type>random number</type>
+        <name>nombre</name>
+        <type>random string</type>
       </field>
     </fields>
      <cluster_schema/>
@@ -211,21 +214,9 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#x2f;&#x2f; plaza&#xa;&#x2f;&#x2f;var plfila &#x3d; Math.abs&#x28;fila&#x29;&#x3b;&#xa;&#x2f;&#x2f;var plcolumna &#x3d; Math.abs&#x28;columna&#x29;&#x3b;&#xa;&#x2f;&#x2f;var plplanta &#x3d; Math.abs&#x28;planta&#x29;&#x3b;&#xa;&#x2f;&#x2f; cliente&#xa;&#x2f;&#x2f;var jstelefono &#x3d; Math.abs&#x28;telefono&#x29;&#x3b;&#xa;&#x2f;&#x2f;avion&#xa;&#x2f;&#x2f;var jscantidad &#x3d; Math.abs&#x28;cantidad&#x29;&#x3b;&#xa;&#x2f;&#x2f;vuelo&#xa;&#x2f;&#x2a;&#xa;var jsprecio &#x3d; Math.abs&#x28;precio&#x2a;1000&#x29;&#x3b;&#xa;var fecha_lle &#x3d; new Date&#x28;Math.random&#x28;&#x29;&#x2a;10000000&#x29;&#x3b;&#xa;var fecha_sal &#x3d; new Date&#x28;Math.random&#x28;&#x29;&#x2a;9000000000&#x29;&#x3b;&#xa;&#x2a;&#x2f;&#xa;&#x2f;&#x2f;reserva&#xa;var fecha_res &#x3d; new Date&#x28;Math.random&#x28;&#x29;&#x29;&#x3b;&#xa;var status &#x3d; Math.round&#x28;Math.random&#x28;&#x29;&#x29;&#x3b;&#xa;var cantidad &#x3d; Math.floor&#x28;Math.random&#x28;&#x29; &#x2a; 10&#x29; &#x2b; 1&#x3b;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>fecha_res</name>
-        <rename>fecha_res</rename>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>status</name>
-        <rename>status</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>cantidad</name>
-        <rename>cantidad</rename>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#x2f;&#x2f; plaza&#xa;&#x2f;&#x2f;var plfila &#x3d; Math.abs&#x28;fila&#x29;&#x3b;&#xa;&#x2f;&#x2f;var plcolumna &#x3d; Math.abs&#x28;columna&#x29;&#x3b;&#xa;&#x2f;&#x2f;var plplanta &#x3d; Math.abs&#x28;planta&#x29;&#x3b;&#xa;&#x2f;&#x2f; cliente&#xa;&#x2f;&#x2f;var jstelefono &#x3d; Math.abs&#x28;telefono&#x29;&#x3b;&#xa;&#x2f;&#x2f;avion&#xa;&#x2f;&#x2f;var jscantidad &#x3d; Math.abs&#x28;cantidad&#x29;&#x3b;&#xa;&#x2f;&#x2f;vuelo&#xa;&#x2f;&#x2a;&#xa;var jsprecio &#x3d; Math.abs&#x28;precio&#x2a;1000&#x29;&#x3b;&#xa;var fecha_lle &#x3d; new Date&#x28;Math.random&#x28;&#x29;&#x2a;10000000&#x29;&#x3b;&#xa;var fecha_sal &#x3d; new Date&#x28;Math.random&#x28;&#x29;&#x2a;9000000000&#x29;&#x3b;&#xa;&#x2a;&#x2f;&#xa;&#x2f;&#x2f;reserva&#xa;&#x2f;&#x2a;&#xa;var fecha_res &#x3d; new Date&#x28;Math.random&#x28;&#x29;&#x29;&#x3b;&#xa;var status &#x3d; Math.round&#x28;Math.random&#x28;&#x29;&#x29;&#x3b;&#xa;var cantidad &#x3d; Math.floor&#x28;Math.random&#x28;&#x29; &#x2a; 10&#x29; &#x2b; 1&#x3b;&#xa;&#x2a;&#x2f;&#xa;&#x2f;&#x2f;Aeropuerto&#xa;&#x2f;&#x2f;var foranea &#x3d; Math.floor&#x28;Math.random&#x28;&#x29;&#x2a;&#x28;1000100-200101&#x2b;1&#x29;&#x2b;200101&#x29;&#x3b;&#xa;&#x2f;&#x2f;aer_vue&#xa;var salida &#x3d; Math.round&#x28;Math.random&#x28;&#x29;&#x29;&#x3b;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>salida</name>
+        <rename>salida</rename>
         <type>Number</type>
         <length>16</length>
         <precision>2</precision>
@@ -287,7 +278,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>832</xloc>
-      <yloc>32</yloc>
+      <yloc>0</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -340,8 +331,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>768</xloc>
-      <yloc>48</yloc>
+      <xloc>800</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -386,7 +377,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>720</xloc>
+      <xloc>768</xloc>
       <yloc>64</yloc>
       <draw>Y</draw>
       </GUI>
@@ -697,8 +688,108 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>720</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>aeropuerto</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>postgre</connection>
+    <schema/>
+    <table>aeropuerto</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>aer_id</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>aer_nombre</column_name>
+          <stream_name>nombre</stream_name>
+        </field>
+        <field>
+          <column_name>fk_lug</column_name>
+          <stream_name>foranea</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>672</xloc>
       <yloc>96</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>aer_vue</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>postgre</connection>
+    <schema/>
+    <table>aer_vue</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>av_fk_vue</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>av_fk_aer</column_name>
+          <stream_name>seq2</stream_name>
+        </field>
+        <field>
+          <column_name>av_salida</column_name>
+          <stream_name>salida</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>608</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
